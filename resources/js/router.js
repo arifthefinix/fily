@@ -3,12 +3,17 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter)
 
-import example from './components/ExampleComponent.vue';
+import dashboard from './components/Dashboard.vue'; 
+import users from './components/user/Users.vue'; 
 
 const routes = [
     {
-        path: '/example',
-        component: example
+        path: '/dashboard',
+        component: dashboard
+    },
+    {
+        path: '/users',
+        component: users
     }
 ]
 

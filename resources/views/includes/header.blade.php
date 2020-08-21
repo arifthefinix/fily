@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/style.css">
     </head>
     <body>
-        <div class="main-wrapper">
+        <div class="main-wrapper" id="app">
             <div class="header">
                 <div class="header-left">
                     <a href="index.html" class="logo">
@@ -112,7 +112,12 @@
 							<li><a href="profile.html">My Profile</a></li>
 							<li><a href="edit-profile.html">Edit Profile</a></li>
 							<li><a href="settings.html">Settings</a></li>
-							<li><a href="login.html">Logout</a></li>
+							<li><a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a></li>
+
 						</ul>
 					</li>
 				</ul>
@@ -122,7 +127,14 @@
 						<li><a href="profile.html">My Profile</a></li>
 						<li><a href="edit-profile.html">Edit Profile</a></li>
 						<li><a href="settings.html">Settings</a></li>
-						<li><a href="login.html">Logout</a></li>
+						<li><a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
 					</ul>
 				</div>
             </div>
@@ -131,13 +143,13 @@
 					<div id="sidebar-menu" class="sidebar-menu">
 						<ul>
 							<li class="active">
-								<a href="index.html"><i class="la la-dashboard"></i> <span>Dashboard</span></a>
+								<router-link to="/dashboard"><i class="la la-dashboard"></i> <span>Dashboard</span></router-link>
 							</li>
 							<li class="submenu">
 								<a href="#" class="noti-dot"><i class="la la-user"></i> <span> Users</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="employees.">All Users</a></li>
-									<li><a href="holidays.html">Add User</a></li>
+									<li><router-link to="/users">All Users</router-link></li>
+									<li><a href="{{ route('user.create') }}">Add User</a></li>
 								</ul>
 							</li>
 							<li>

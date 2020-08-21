@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use User;
+use App\User;
+
+use Hash;
 
 class UserController extends Controller
 {
@@ -16,7 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.list');
+        $users = User::where('user_role','2')->get();
+        return view('admin.user.list',compact('users'));
     }
 
     /**
@@ -26,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.add');
     }
 
     /**
@@ -37,7 +40,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'email' => 'required|unique:users',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt('12345678'),
+            'user_role' => 2,
+        ]);
+        return back()->with('status','New user Created Succesfully');
     }
 
     /**
@@ -82,6 +96,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return back()->with('status','User Deleted');
     }
 }
