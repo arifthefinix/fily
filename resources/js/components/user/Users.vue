@@ -19,7 +19,6 @@
                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
-                            <!-- <li><a href="{{ route('user.destroy',$user->id) }}"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li> -->
                         </ul>
                     </div>
                     <h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="profile.html">Catherine Manseau</a></h4>

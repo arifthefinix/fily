@@ -149,8 +149,11 @@
 								<a href="#" class="noti-dot"><i class="la la-user"></i> <span> Users</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><router-link to="/users">All Users</router-link></li>
-									<li><a href="{{ route('user.create') }}">Add User</a></li>
+									<li><router-link to="/users/add">Add User</router-link></li>
 								</ul>
+							</li>
+							<li>
+								<router-link to="/files"><i class="la la-tasks"></i> <span>Files</span></router-link>
 							</li>
 							<li>
 								<a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a>
@@ -158,9 +161,7 @@
 							<li>
 								<a href="projects.html"><i class="la la-rocket"></i> <span>Projects</span></a>
 							</li>
-							<li>
-								<a href="tasks.html"><i class="la la-tasks"></i> <span>Tasks</span></a>
-							</li>
+							
 							<li class="submenu">
 								<a href="#"><i class="la la-phone"></i> <span> Calls</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">

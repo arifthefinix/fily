@@ -20,6 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin/dashboard', 'Admin\AdminController@dashboard');
-Route::resource('/admin/user', 'Admin\UserController');
+// Route::resource('/admin/user', 'Admin\UserController');
 
 Route::get('/{any}', 'HomeController@vueroute')->where('any', '.*');
