@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/admin/dashboard', 'Admin\AdminController@dashboard');
 // Route::resource('/admin/user', 'Admin\UserController');

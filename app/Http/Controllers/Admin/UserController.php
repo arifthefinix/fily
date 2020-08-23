@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('user_role','2')->get();
-        return view('admin.user.list',compact('users'));
+        return $users;
     }
 
     /**
@@ -51,7 +51,6 @@ class UserController extends Controller
             'password' => bcrypt('12345678'),
             'user_role' => 2,
         ]);
-        return back()->with('status','New user Created Succesfully');
     }
 
     /**

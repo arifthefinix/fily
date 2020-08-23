@@ -216,8 +216,8 @@
 <script type="text/javascript" src="{{ asset('backend') }}/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{ asset('backend') }}/assets/js/jquery.slimscroll.js"></script>
 <script type="text/javascript" src="{{ asset('backend') }}/assets/plugins/morris/morris.min.js"></script>
-<script type="text/javascript" src="{{ asset('backend') }}/assets/plugins/raphael/raphael-min.js"></script>
-<script type="text/javascript" src="{{ asset('backend') }}/assets/js/chart.js"></script>
+{{-- <script type="text/javascript" src="{{ asset('backend') }}/assets/plugins/raphael/raphael-min.js"></script> --}}
+{{-- <script type="text/javascript" src="{{ asset('backend') }}/assets/js/chart.js"></script> --}}
 <script type="text/javascript" src="{{ asset('backend') }}/assets/js/sweetalert.js"></script>
 <script type="text/javascript" src="{{ asset('backend') }}/assets/js/app.js"></script>
 @yield('footer_script')
