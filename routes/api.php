@@ -19,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/user', 'Admin\UserController');
-Route::post('/file/upload','File\FileController@uploadFile');
+
+Route::get('/file-list/{id}','File\FileController@fileList');
+
+Route::get('/download/{id}','File\FileController@download');
+Route::get('/download/{id}','File\FileController@download');

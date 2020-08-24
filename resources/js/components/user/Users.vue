@@ -13,7 +13,8 @@
             <div v-for="user in users" :key="user.id" class="col-md-4 col-sm-4 col-xs-6 col-lg-3">
                 <div class="profile-widget">
                     <div class="profile-img">
-                        <a href="#" class="avatar">C</a>
+                        
+                        <router-link class="avatar" :to="{ name: 'fileList', params:{id:user.id}}">P</router-link>
                     </div>
                     <div class="dropdown profile-action">
                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
@@ -21,7 +22,7 @@
                             <li><a href="#" data-toggle="modal" data-target="#edit_employee"><i class="fa fa-pencil m-r-5"></i> Edit</a></li>
                         </ul>
                     </div>
-                    <h4 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="#">{{ user.name }}</a></h4>
+                    <h4 class="user-name m-t-10 m-b-0 text-ellipsis"><router-link :to="{ name: 'fileList', params:{id:user.id}}">{{ user.name }}</router-link></h4>
                 </div>
             </div>
          

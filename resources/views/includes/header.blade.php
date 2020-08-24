@@ -104,7 +104,7 @@
 					</li>
 					<li class="dropdown">
 						<a href="profile.html" class="dropdown-toggle user-link" data-toggle="dropdown" title="Admin">
-							<span class="user-img"><img class="img-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+						<span class="user-img"><img class="img-circle" src="{{ asset('/backend') }}/assets/img/user.jpg" width="40" alt="Admin">
 							<span class="status online"></span></span>
 							<span>Admin</span>
 							<i class="caret"></i>
@@ -146,10 +146,12 @@
 							<li class="active">
 								<router-link to="/dashboard"><i class="la la-dashboard"></i> <span>Dashboard</span></router-link>
 							</li>
+							@if(Auth::user()->user_role==0)
 							<li>
 								<router-link to="/users"> <i class="la la-user"></i> <span>All Users</span></router-link>
 							</li>
-							<li><router-link to="/add-user"><i class="la la-plus"></i> <span>Add User</span></router-link></li>
+							<li><router-link to="/add-user"><i class="la la-plus"></i> <span>Add User</span></router-link></li>	
+							@endauth
 							
 							<li>
 								<router-link to="/files"><i class="la la-tasks"></i> <span>Files</span></router-link>

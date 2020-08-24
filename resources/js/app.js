@@ -7,6 +7,25 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import moment from 'moment';
+
+import swal from 'sweetalert2'
+window.swal =swal;
+
+ 
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  window.toast = toast;
 
 import { Form, HasError, AlertError } from 'vform';
 
@@ -17,6 +36,10 @@ Vue.component(AlertError.name, AlertError)
 
 import router from './router';
 
+
+Vue.filter('dateFormat',function (date) {
+    return moment().startOf('hour').fromNow();
+});
 
 const app = new Vue({
     el: '#app',

@@ -13,9 +13,8 @@
     <body>
         <div class="main-wrapper">
 			<div class="account-page">
-				<a href="job-list.html" class="btn btn-primary apply-btn">Apply Job</a>
 				<div class="container">
-					<h3 class="account-title">Management Login</h3>
+					<h3 class="account-title">Fily Login</h3>
 					<div class="account-box">
 						<div class="account-wrapper">
 							<div class="account-logo">

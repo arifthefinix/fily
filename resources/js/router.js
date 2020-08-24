@@ -32,8 +32,9 @@ const routes = [
         component: addFile
     },
     {
-        path: '/file-list',
+        path: '/file-list/:id',
         component: fileList,
+        name: 'fileList'
     }
 ]
 

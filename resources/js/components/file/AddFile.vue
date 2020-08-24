@@ -16,8 +16,8 @@
                                <div class="col-md-offset-3 col-md-6">
                                    <div class="form-group">
                                         <label class="control-label">File Name <span class="text-danger">*</span></label>
-                                        <input v-model="name" type="text" class="form-control">
-                                      
+                                        <input v-model="name" type="text" class="form-control" required>
+                        
                                    </div>
                                </div>
 							</div>
@@ -25,7 +25,7 @@
                                <div class="col-md-offset-3 col-md-6">
                                    <div class="form-group">
                                        <label class="control-label">File <span class="text-danger">*</span></label>
-                                       <input type="file" @change="selectFile" class="form-control" name="file_name" >
+                                       <input type="file" @change="selectFile" class="form-control" name="file_name" required>
                                    </div>
                                </div>
 							</div>
@@ -62,9 +62,12 @@
 
                 const config = { headers: { 'content-Type': 'multipart/form-data'} };
                 
-                axios.post('/api/file/upload',this.form,config).then(response=>{
-
-                })
+                axios.post('file/upload',this.form,config).then(response=>{
+                    toast.fire({
+                        icon: 'success',
+                        title: 'File uploaded successfully'
+                        })
+                    })
             },
         },
         mounted() {

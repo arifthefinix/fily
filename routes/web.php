@@ -23,3 +23,5 @@ Route::get('/admin/dashboard', 'Admin\AdminController@dashboard');
 // Route::resource('/admin/user', 'Admin\UserController');
 
 Route::get('/{any}', 'HomeController@vueroute')->where('any', '.*');
+
+Route::post('/file/upload','File\FileController@uploadFile');
