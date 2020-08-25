@@ -23,4 +23,4 @@ Route::resource('/user', 'Admin\UserController');
 Route::get('/file-list/{id}','File\FileController@fileList');
 
 Route::get('/download/{id}','File\FileController@download');
-Route::get('/download/{id}','File\FileController@download');
+Route::get('/delete/{id}','File\FileController@deleteFile');

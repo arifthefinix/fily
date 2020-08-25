@@ -24,6 +24,7 @@
 								<div class="small text-muted">{{ file.created_at | dateFormat }}</div>
 								<!-- <button  type='button' @click="downloadFile()" class="btn btn-default btn-sm m-t-10">Download</button> -->
 								<a :href="'/api/download/'+file.id" class="btn btn-default btn-sm m-t-10">Download File</a>
+								<button class="btn btn-default btn-sm m-t-10" @click="deleteFile(file.id)">Delete File</button>
 							</div>
 						</div>
 					</div>
@@ -42,7 +43,12 @@
         methods: {
             fileList(){
                 axios.get('/api/file-list/'+this.$route.params.id).then(({data}) => (this.files =data));
-            },
+			},
+
+			deleteFile(value){
+				axios.get('/api/delete/'+value);
+				this.fileList();
+			}
         },
 
         created() {

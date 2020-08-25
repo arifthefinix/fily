@@ -44,6 +44,10 @@ class FileController extends Controller
         $file = File::find($id);
         return Storage::download($file->file_name);
     }
+    
+    public function deleteFile($id){
+        File::find($id)->delete();
+    }
 
     
 }

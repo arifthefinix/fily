@@ -2214,6 +2214,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2228,6 +2229,10 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this.files = data;
       });
+    },
+    deleteFile: function deleteFile(value) {
+      axios.get('/api/delete/' + value);
+      this.fileList();
     }
   },
   created: function created() {
@@ -63922,6 +63927,19 @@ var render = function() {
                   attrs: { href: "/api/download/" + file.id }
                 },
                 [_vm._v("Download File")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default btn-sm m-t-10",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteFile(file.id)
+                    }
+                  }
+                },
+                [_vm._v("Delete File")]
               )
             ])
           ]
