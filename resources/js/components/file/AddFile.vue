@@ -17,7 +17,20 @@
                                    <div class="form-group">
                                         <label class="control-label">File Name <span class="text-danger">*</span></label>
                                         <input v-model="name" type="text" class="form-control" required>
-                        
+                                   </div>
+                               </div>
+							</div>
+                            <div class="col-md-12">
+                               <div class="col-md-offset-3 col-md-6">
+                                   <div class="form-group">
+                                        <label class="control-label">Share With <span class="text-danger">*</span></label>
+                                        <select v-model="user_id" id="" class="form-control" multiple>
+                                            <option value="1">User Name</option>
+                                            <option value="2">User Name</option>
+                                            <option value="3">User Name</option>
+                                            <option value="4">User Name</option>
+                                            <option value="5">User Name</option>
+                                        </select>
                                    </div>
                                </div>
 							</div>
@@ -47,6 +60,7 @@
         data(){
             return{
                 name: '',
+                user_id: [],
                 attatchment: '',
                 form: new FormData,
             }
@@ -59,6 +73,7 @@
             uploadFile(){
                 this.form.append('file_name',this.attatchment);
                 this.form.append('name',this.name);
+                this.form.append('user_id',this.user_id);
 
                 const config = { headers: { 'content-Type': 'multipart/form-data'} };
                 

@@ -17,6 +17,7 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('file_title');
             $table->string('file_name');
+            $table->integer('owner_id');
             $table->integer('user_id');
             $table->string('file_size')->nullable();
             $table->softDeletes();

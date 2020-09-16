@@ -9,5 +9,5 @@ class File extends Model
 {
      use SoftDeletes;
 
-     protected $fillable = ['file_title','file_name','user_id','file_size'];
+     protected $fillable = ['file_title','file_name','owner_id','user_id','file_size'];
 }
