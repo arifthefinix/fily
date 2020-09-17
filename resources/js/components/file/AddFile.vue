@@ -81,12 +81,10 @@
                     toast.fire({
                         icon: 'success',
                         title: 'File uploaded successfully'
-                        })
-                    })
+                        });
+                    });
+                this.$router.push('files');
             },
-        },
-        mounted() {
-            console.log('Component mounted.')
         }
     }
 </script>

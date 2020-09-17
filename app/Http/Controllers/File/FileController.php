@@ -46,7 +46,10 @@ class FileController extends Controller
     }
 
     public function fileList($id){
-        $files = File::where('user_id',$id)->get();
+        $files = File::where([
+            ['owner_id',$id],
+            ['user_id',Auth::id()],
+        ])->get();
         return $files;
     }
 

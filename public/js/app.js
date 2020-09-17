@@ -2113,10 +2113,8 @@ __webpack_require__.r(__webpack_exports__);
           title: 'File uploaded successfully'
         });
       });
+      this.$router.push('files');
     }
-  },
-  mounted: function mounted() {
-    console.log('Component mounted.');
   }
 });
 
