@@ -25,11 +25,7 @@
                                    <div class="form-group">
                                         <label class="control-label">Share With <span class="text-danger">*</span></label>
                                         <select v-model="user_id" id="" class="form-control" multiple>
-                                            <option value="1">User Name</option>
-                                            <option value="2">User Name</option>
-                                            <option value="3">User Name</option>
-                                            <option value="4">User Name</option>
-                                            <option value="5">User Name</option>
+                                            <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name  }}</option>
                                         </select>
                                    </div>
                                </div>
@@ -62,6 +58,7 @@
                 name: '',
                 user_id: [],
                 attatchment: '',
+                users: {},
                 form: new FormData,
             }
         },
@@ -85,6 +82,12 @@
                     });
                 this.$router.push('files');
             },
+            listUsers(){
+                axios.get('api/user').then(({data}) => (this.users =data));
+            }
+        },
+        created() {
+            this.listUsers();
         }
     }
 </script>

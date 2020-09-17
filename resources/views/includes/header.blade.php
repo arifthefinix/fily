@@ -106,7 +106,7 @@
 						<a href="profile.html" class="dropdown-toggle user-link" data-toggle="dropdown" title="Admin">
 						<span class="user-img"><img class="img-circle" src="{{ asset('/backend') }}/assets/img/user.jpg" width="40" alt="Admin">
 							<span class="status online"></span></span>
-							<span>Admin</span>
+							<span>{{ Auth::user()->name }}</span>
 							<i class="caret"></i>
 						</a>
 						<ul class="dropdown-menu">

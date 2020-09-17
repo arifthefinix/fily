@@ -16,6 +16,7 @@ class FileController extends Controller
     function __construct()
     {
         $this->middleware('auth')->only(['uploadFile']);
+        $this->middleware('auth:api')->except(['uploadFile']);
     }
 
 
@@ -46,9 +47,10 @@ class FileController extends Controller
     }
 
     public function fileList($id){
+        $user =Auth::user()->id;
         $files = File::where([
             ['owner_id',$id],
-            ['user_id',Auth::id()],
+            ['user_id',$user]
         ])->get();
         return $files;
     }
@@ -59,7 +61,7 @@ class FileController extends Controller
     }
     
     public function deleteFile($id){
-        File::find($id)->delete();
+        File::find($id);
     }
 
     

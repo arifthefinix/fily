@@ -21,7 +21,8 @@
 								</div>
 								<h4 class="user-name m-t-10 m-b-0 text-ellipsis">{{ file.file_title }}</h4>
 								<!-- <h5 class="user-name m-t-10 m-b-0 text-ellipsis"><a href="client-profile.html">Barry Cuda</a></h5> -->
-								<div class="small text-muted">{{ file.created_at | dateFormat }}</div>
+								<!-- <div class="small text-muted">{{ file.created_at | dateFormat }}</div> -->
+								<div class="small text-muted">A few seconds ago</div>
 								<!-- <button  type='button' @click="downloadFile()" class="btn btn-default btn-sm m-t-10">Download</button> -->
 								<a :href="'/api/download/'+file.id" class="btn btn-default btn-sm m-t-10">Download File</a>
 								<button class="btn btn-default btn-sm m-t-10" @click="deleteFile(file.id)">Delete File</button>

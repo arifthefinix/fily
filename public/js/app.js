@@ -2080,16 +2080,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       name: '',
       user_id: [],
       attatchment: '',
+      users: {},
       form: new FormData()
     };
   },
@@ -2114,7 +2111,18 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
       this.$router.push('files');
+    },
+    listUsers: function listUsers() {
+      var _this = this;
+
+      axios.get('api/user').then(function (_ref) {
+        var data = _ref.data;
+        return _this.users = data;
+      });
     }
+  },
+  created: function created() {
+    this.listUsers();
   }
 });
 
@@ -2194,6 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -63700,27 +63709,14 @@ var render = function() {
                           }
                         }
                       },
-                      [
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("User Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "2" } }, [
-                          _vm._v("User Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "3" } }, [
-                          _vm._v("User Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "4" } }, [
-                          _vm._v("User Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "5" } }, [
-                          _vm._v("User Name")
-                        ])
-                      ]
+                      _vm._l(_vm.users, function(user) {
+                        return _c(
+                          "option",
+                          { key: user.id, domProps: { value: user.id } },
+                          [_vm._v(_vm._s(user.name))]
+                        )
+                      }),
+                      0
                     )
                   ])
                 ])
@@ -63999,7 +63995,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "small text-muted" }, [
-                _vm._v(_vm._s(_vm._f("dateFormat")(file.created_at)))
+                _vm._v("A few seconds ago")
               ]),
               _vm._v(" "),
               _c(
