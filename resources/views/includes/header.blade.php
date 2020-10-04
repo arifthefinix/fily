@@ -18,7 +18,7 @@
             <div class="header">
                 <div class="header-left">
                     <a href="index.html" class="logo">
-						<img src="assets/img/logo.png" width="40" height="40" alt="">
+						<img src="{{ asset('backend') }}/assets/img/logo.png" width="40" height="40" alt="">
 					</a>
                 </div>
 				<a id="toggle_btn" href="javascript:void(0);"><i class="la la-bars"></i></a>

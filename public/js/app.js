@@ -1934,85 +1934,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      shared: '',
+      sharedWith: ''
+    };
+  },
+  methods: {
+    sharedByMe: function sharedByMe() {
+      var _this = this;
+
+      axios.get('api/dashboard/shared-by-me').then(function (_ref) {
+        var data = _ref.data;
+        return _this.shared = data;
+      });
+    },
+    sharedWithMe: function sharedWithMe() {
+      var _this2 = this;
+
+      axios.get('api/dashboard/shared-with-me').then(function (_ref2) {
+        var data = _ref2.data;
+        return _this2.sharedWith = data;
+      });
+    }
+  },
+  created: function created() {
+    this.sharedByMe();
+    this.sharedWithMe();
   }
 });
 
@@ -2104,7 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
           'content-Type': 'multipart/form-data'
         }
       };
-      axios.post('file/upload', this.form, config).then(function (response) {
+      axios.post('api/file/upload', this.form, config).then(function (response) {
         toast.fire({
           icon: 'success',
           title: 'File uploaded successfully'
@@ -63398,193 +63347,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content container-fluid" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
+        _c("div", { staticClass: "dash-widget clearfix card-box" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "dash-widget-info" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.shared))]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Files Shared by you")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
+        _c("div", { staticClass: "dash-widget clearfix card-box" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "dash-widget-info" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.sharedWith))]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Files Shared with you")])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
-          _c("div", { staticClass: "dash-widget clearfix card-box" }, [
-            _c("span", { staticClass: "dash-widget-icon" }, [
-              _c("i", {
-                staticClass: "fa fa-cubes",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "dash-widget-info" }, [
-              _c("h3", [_vm._v("112")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Projects")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
-          _c("div", { staticClass: "dash-widget clearfix card-box" }, [
-            _c("span", { staticClass: "dash-widget-icon" }, [
-              _c("i", {
-                staticClass: "fa fa-usd",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "dash-widget-info" }, [
-              _c("h3", [_vm._v("44")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Clients")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
-          _c("div", { staticClass: "dash-widget clearfix card-box" }, [
-            _c("span", { staticClass: "dash-widget-icon" }, [
-              _c("i", { staticClass: "fa fa-diamond" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "dash-widget-info" }, [
-              _c("h3", [_vm._v("37")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Tasks")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6 col-lg-3" }, [
-          _c("div", { staticClass: "dash-widget clearfix card-box" }, [
-            _c("span", { staticClass: "dash-widget-icon" }, [
-              _c("i", {
-                staticClass: "fa fa-user",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "dash-widget-info" }, [
-              _c("h3", [_vm._v("218")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("Employees")])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("div", { staticClass: "panel panel-table" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _c("h3", { staticClass: "panel-title" }, [_vm._v("Payments")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _c("div", { staticClass: "table-responsive" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-striped custom-table m-b-0" },
-                  [
-                    _c("thead", [
-                      _c("tr", [
-                        _c("th", [_vm._v("Invoice ID")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Client")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Payment Type")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Paid Date")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Paid Amount")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", [
-                          _c("a", { attrs: { href: "invoice-view.html" } }, [
-                            _vm._v("#INV-0004")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("h2", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Barry Cuda")
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Paypal")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("11 Jun 2017")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$380")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [
-                          _c("a", { attrs: { href: "invoice-view.html" } }, [
-                            _vm._v("#INV-0005")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("h2", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Tressa Wexler")
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Paypal")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("21 Jul 2017")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$500")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [
-                          _c("a", { attrs: { href: "invoice-view.html" } }, [
-                            _vm._v("#INV-0006")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("h2", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Ruby Bartlett")
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Paypal")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("28 Aug 2017")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("$60")])
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-footer" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "text-primary",
-                  attrs: { href: "payments.html" }
-                },
-                [_vm._v("View all payments")]
-              )
-            ])
-          ])
-        ])
-      ])
+    return _c("span", { staticClass: "dash-widget-icon" }, [
+      _c("i", { staticClass: "fa fa-cubes", attrs: { "aria-hidden": "true" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "dash-widget-icon" }, [
+      _c("i", { staticClass: "fa fa-cubes", attrs: { "aria-hidden": "true" } })
     ])
   }
 ]

@@ -15,8 +15,9 @@ class FileController extends Controller
 
     function __construct()
     {
-        $this->middleware('auth')->only(['uploadFile']);
-        $this->middleware('auth:api')->except(['uploadFile']);
+        // $this->middleware('auth')->only(['uploadFile']);
+        // $this->middleware('auth:api')->except(['uploadFile']);
+        $this->middleware('auth:api')->except(['download']);
     }
 
 
@@ -58,11 +59,23 @@ class FileController extends Controller
     public function download($id){
         $file = File::find($id);
         return Storage::download($file->file_name);
+       
     }
     
     public function deleteFile($id){
-        File::find($id);
+        $fil = File::find($id);
+        Storage::delete($fil->file_name);
+        File::find($id)->delete();
     }
 
     
+    public function sharedByMe(){
+        $shareByMe = File::where('owner_id',Auth::user()->id)->count();
+        return $shareByMe;
+    }
+
+    public function sharedWithMe(){
+        $shareWithMe = File::where('user_id',Auth::user()->id)->count();
+        return $shareWithMe;
+    }
 }

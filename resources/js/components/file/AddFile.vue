@@ -74,7 +74,7 @@
 
                 const config = { headers: { 'content-Type': 'multipart/form-data'} };
                 
-                axios.post('file/upload',this.form,config).then(response=>{
+                axios.post('api/file/upload',this.form,config).then(response=>{
                     toast.fire({
                         icon: 'success',
                         title: 'File uploaded successfully'
